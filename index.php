@@ -42,7 +42,7 @@ function isExpired($endDate) {
 <?php include __DIR__ . '/includes/navbar.php'; ?>
 
 <main class="min-h-screen bg-gray-50">
-  <div class="container mx-auto px-6 py-8">
+  <div class="container mx-auto px-12 py-8">
     
     <!-- Page Title -->
     <div class="mb-8 text-center">
