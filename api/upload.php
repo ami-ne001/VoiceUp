@@ -47,7 +47,7 @@ $filepath = $uploadDir . $filename;
 
 // Move uploaded file
 if (move_uploaded_file($file['tmp_name'], $filepath)) {
-    $url = '/php-version/uploads/' . $filename;
+    $url = 'uploads/' . $filename;
     echo json_encode(['url' => $url]);
 } else {
     echo json_encode(['error' => 'Failed to upload image']);

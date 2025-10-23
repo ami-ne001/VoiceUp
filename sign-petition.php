@@ -6,7 +6,7 @@ $user = getCurrentUser();
 $petitionId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if (!$petitionId) {
-    header('Location: /php-version/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -19,7 +19,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
-    header('Location: /php-version/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -42,7 +42,7 @@ $error = '';
 $success = '';
 
 if ($isExpired) {
-    header('Location: /php-version/petition-details.php?id=' . $petitionId);
+    header('Location: petition-details.php?id=' . $petitionId);
     exit;
 }
 
@@ -72,7 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 $stmt2->close();
             }
             
-            header('Location: /php-version/petition-details.php?id=' . $petitionId);
+            header('Location: petition-details.php?id=' . $petitionId);
             exit;
         } else {
             $error = 'Failed to add signature. Please try again.';
@@ -94,7 +94,7 @@ function formatDate($dateString) {
 <div class="min-h-screen bg-gray-50 py-8">
     <div class="container mx-auto px-4 max-w-3xl">
         <div class="mb-6">
-            <a href="/php-version/petition-details.php?id=<?php echo $petitionId; ?>" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+            <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
@@ -129,7 +129,7 @@ function formatDate($dateString) {
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="/php-version/sign-petition.php?id=<?php echo $petitionId; ?>">
+            <form method="POST" action="sign-petition.php?id=<?php echo $petitionId; ?>">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
@@ -162,7 +162,7 @@ function formatDate($dateString) {
                     <button type="submit" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium">
                         Sign Petition
                     </button>
-                    <a href="/php-version/petition-details.php?id=<?php echo $petitionId; ?>" class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
+                    <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
                         Cancel
                     </a>
                 </div>

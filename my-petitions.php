@@ -90,7 +90,7 @@ function isExpired($endDate) {
                     </svg>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">No petitions created yet</h3>
                     <p class="text-gray-600 mb-4">Start making a difference by creating your first petition</p>
-                    <a href="/php-version/add-petition.php" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                    <a href="add-petition.php" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
                         Create Petition
                     </a>
                 </div>
@@ -123,10 +123,10 @@ function isExpired($endDate) {
                                     </div>
                                 </div>
                                 <div class="flex flex-wrap gap-2">
-                                    <a href="/php-version/petition-details.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
+                                    <a href="petition-details.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
                                         View
                                     </a>
-                                    <a href="/php-version/modify-petition.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
+                                    <a href="modify-petition.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
                                         Edit
                                     </a>
                                     <button onclick="deletePetition(<?php echo $petition['IDP']; ?>)" class="px-4 py-2 bg-red-600 text-white rounded-md hover:bg-red-700 transition">
@@ -149,7 +149,7 @@ function isExpired($endDate) {
                     </svg>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">No petitions signed yet</h3>
                     <p class="text-gray-600 mb-4">Browse petitions and sign those that matter to you</p>
-                    <a href="/php-version/index.php" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                    <a href="index.php" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
                         Browse Petitions
                     </a>
                 </div>
@@ -187,7 +187,7 @@ function isExpired($endDate) {
                                     </div>
                                 </div>
                                 <div class="flex gap-2">
-                                    <a href="/php-version/petition-details.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-center">
+                                    <a href="petition-details.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-center">
                                         View Details
                                     </a>
                                 </div>
@@ -229,7 +229,7 @@ function deletePetition(id) {
         return;
     }
     
-    fetch(`/php-version/api/petitions.php?id=${id}`, {
+    fetch(`api/petitions.php?id=${id}`, {
         method: 'DELETE'
     })
     .then(response => response.json())

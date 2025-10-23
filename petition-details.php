@@ -6,7 +6,7 @@ $user = getCurrentUser();
 $petitionId = isset($_GET['id']) ? intval($_GET['id']) : 0;
 
 if (!$petitionId) {
-    header('Location: /php-version/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -19,7 +19,7 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 if ($result->num_rows === 0) {
-    header('Location: /php-version/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -59,7 +59,7 @@ function formatDateTime($dateString, $timeString) {
 <div class="min-h-screen bg-gray-50 py-8">
     <div class="container mx-auto px-4 max-w-4xl">
         <div class="mb-6">
-            <a href="/php-version/index.php" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+            <a href="index.php" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
@@ -103,13 +103,13 @@ function formatDateTime($dateString, $timeString) {
 
                 <div class="flex gap-3">
                     <?php if (!$isExpired): ?>
-                        <a href="/php-version/sign-petition.php?id=<?php echo $petition['IDP']; ?>" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium text-center">
+                        <a href="sign-petition.php?id=<?php echo $petition['IDP']; ?>" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium text-center">
                             Sign this Petition
                         </a>
                     <?php endif; ?>
                     
                     <?php if ($isOwner): ?>
-                        <a href="/php-version/modify-petition.php?id=<?php echo $petition['IDP']; ?>" class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition">
+                        <a href="modify-petition.php?id=<?php echo $petition['IDP']; ?>" class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition">
                             Edit
                         </a>
                         <button onclick="deletePetition(<?php echo $petition['IDP']; ?>)" class="px-6 py-3 bg-red-600 text-white rounded-md hover:bg-red-700 transition">
@@ -159,7 +159,7 @@ function deletePetition(id) {
         return;
     }
     
-    fetch(`/php-version/api/petitions.php?id=${id}`, {
+    fetch(`api/petitions.php?id=${id}`, {
         method: 'DELETE'
     })
     .then(response => response.json())
@@ -167,7 +167,7 @@ function deletePetition(id) {
         if (data.error) {
             alert('Error: ' + data.error);
         } else {
-            window.location.href = '/php-version/index.php';
+            window.location.href = 'index.php';
         }
     })
     .catch(error => {
@@ -181,7 +181,7 @@ function deleteSignature(petitionId, signatureId) {
         return;
     }
     
-    fetch(`/php-version/api/signatures.php?petitionId=${petitionId}&signatureId=${signatureId}`, {
+    fetch(`api/signatures.php?petitionId=${petitionId}&signatureId=${signatureId}`, {
         method: 'DELETE'
     })
     .then(response => response.json())

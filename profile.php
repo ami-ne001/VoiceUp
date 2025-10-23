@@ -115,7 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="bg-white rounded-lg shadow-md p-8">
                     <h2 class="text-xl font-bold text-gray-900 mb-6">Personal Information</h2>
                     
-                    <form method="POST" action="/php-version/profile.php">
+                    <form method="POST" action="profile.php">
                         <div class="mb-6">
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
                             <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo htmlspecialchars($profile['name']); ?>">
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <span class="text-lg font-bold text-gray-900"><?php echo $signedCount; ?></span>
                         </div>
                     </div>
-                    <a href="/php-version/my-petitions.php" class="block w-full mt-4 py-2 text-center border border-gray-300 rounded-md hover:bg-gray-50 transition">
+                    <a href="my-petitions.php" class="block w-full mt-4 py-2 text-center border border-gray-300 rounded-md hover:bg-gray-50 transition">
                         View My Petitions
                     </a>
                 </div>

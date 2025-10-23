@@ -3,7 +3,7 @@ require_once __DIR__ . '/config/session.php';
 
 // Redirect if already logged in
 if (isLoggedIn()) {
-    header('Location: /php-version/index.php');
+    header('Location: index.php');
     exit;
 }
 
@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             
             if (password_verify($password, $user['password'])) {
                 setUserSession($user['id'], $user['email'], $user['name']);
-                header('Location: /php-version/index.php');
+                header('Location: index.php');
                 exit;
             } else {
                 $error = 'Invalid email or password';
@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <div class="min-h-screen bg-gray-50 flex flex-col">
     <div class="bg-white border-b">
         <div class="container mx-auto px-4 py-4">
-            <a href="/php-version/index.php" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+            <a href="index.php" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
@@ -81,7 +81,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <?php endif; ?>
 
             <div class="bg-white rounded-lg shadow-md p-8">
-                <form method="POST" action="/php-version/login.php">
+                <form method="POST" action="login.php">
                     <div class="mb-4">
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
                         <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>">
@@ -100,7 +100,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="mt-6 text-center">
                     <p class="text-gray-600">
                         Don't have an account? 
-                        <a href="/php-version/signup.php" class="text-blue-600 hover:text-blue-700 font-medium">Sign Up</a>
+                        <a href="signup.php" class="text-blue-600 hover:text-blue-700 font-medium">Sign Up</a>
                     </p>
                 </div>
             </div>

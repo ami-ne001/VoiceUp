@@ -10,7 +10,7 @@ $action = isset($_GET['action']) ? $_GET['action'] : '';
 // Handle logout
 if ($action === 'logout') {
     clearUserSession();
-    header('Location: /php-version/index.php');
+    header('Location: index.php');
     exit;
 }
 

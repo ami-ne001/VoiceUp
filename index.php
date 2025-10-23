@@ -65,7 +65,7 @@ function isExpired($endDate) {
                     </svg>
                     <span class="text-lg"><?php echo number_format($topPetition['signatureCount']); ?> signatures</span>
                 </div>
-                <a href="/php-version/petition-details.php?id=<?php echo $topPetition['IDP']; ?>" class="bg-white text-blue-600 px-6 py-2 rounded-md hover:bg-gray-100 transition font-semibold">
+                <a href="petition-details.php?id=<?php echo $topPetition['IDP']; ?>" class="bg-white text-blue-600 px-6 py-2 rounded-md hover:bg-gray-100 transition font-semibold">
                     View Petition
                 </a>
             </div>
@@ -131,10 +131,10 @@ function isExpired($endDate) {
                                     </div>
                                 </div>
                                 <div class="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
-                                    <a href="/php-version/petition-details.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
+                                    <a href="petition-details.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
                                         View Details
                                     </a>
-                                    <a href="/php-version/sign-petition.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-center <?php echo isExpired($petition['EndDateP']) ? 'opacity-50 pointer-events-none' : ''; ?>">
+                                    <a href="sign-petition.php?id=<?php echo $petition['IDP']; ?>" class="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition text-center <?php echo isExpired($petition['EndDateP']) ? 'opacity-50 pointer-events-none' : ''; ?>">
                                         <?php echo isExpired($petition['EndDateP']) ? 'Closed' : 'Sign Petition'; ?>
                                     </a>
                                 </div>

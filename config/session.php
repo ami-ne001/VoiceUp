@@ -25,7 +25,7 @@ function getCurrentUser() {
 // Require authentication
 function requireAuth() {
     if (!isLoggedIn()) {
-        header('Location: /php-version/login.php');
+        header('Location: login.php');
         exit;
     }
 }
