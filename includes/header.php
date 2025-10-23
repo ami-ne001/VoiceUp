@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo isset($pageTitle) ? $pageTitle . ' - Petition Platform' : 'Petition Platform'; ?></title>
+    <title><?php echo isset($pageTitle) ? $pageTitle . ' - VoiceUp' : 'VoiceUp'; ?></title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         body {

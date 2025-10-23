@@ -64,19 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <?php include __DIR__ . '/includes/header.php'; ?>
+<?php include __DIR__ . '/includes/navbar.php'; ?>
 
 <div class="min-h-screen bg-gray-50 flex flex-col">
-    <div class="bg-white border-b">
-        <div class="container mx-auto px-4 py-4">
-            <a href="index.php" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
-                </svg>
-                Back to Petitions
-            </a>
-        </div>
-    </div>
-
     <div class="flex-1 flex items-center justify-center px-4 py-12">
         <div class="w-full max-w-md">
             <div class="text-center mb-8">
