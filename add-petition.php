@@ -37,6 +37,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $stmt2->execute();
             $stmt2->close();
             
+            // Trigger notification
+            addNotification($petitionId, $title, $holderName);
+            
             header('Location: petition-details.php?id=' . $petitionId);
             exit;
         } else {
@@ -46,6 +49,41 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->close();
         closeDBConnection($conn);
     }
+}
+
+// Simple function to add notification directly to file
+function addNotification($petitionId, $title, $holder) {
+    $notificationsFile = __DIR__ . '/data/notifications.json';
+    
+    // Create data directory if it doesn't exist
+    $dataDir = dirname($notificationsFile);
+    if (!is_dir($dataDir)) {
+        mkdir($dataDir, 0755, true);
+    }
+    
+    // Load existing notifications
+    $notifications = [];
+    if (file_exists($notificationsFile)) {
+        $content = file_get_contents($notificationsFile);
+        $notifications = json_decode($content, true) ?: [];
+    }
+    
+    // Add new notification
+    $notification = [
+        'id' => $petitionId,
+        'title' => $title,
+        'holder' => $holder,
+        'timestamp' => time()
+    ];
+    
+    // Add to beginning of array
+    array_unshift($notifications, $notification);
+    
+    // Keep only last 5 notifications
+    $notifications = array_slice($notifications, 0, 5);
+    
+    // Save to file
+    file_put_contents($notificationsFile, json_encode($notifications));
 }
 ?>
 

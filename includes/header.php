@@ -12,3 +12,4 @@
     </style>
 </head>
 <body class="bg-gray-50">
+    <script src="assets/js/notifications.js"></script>
