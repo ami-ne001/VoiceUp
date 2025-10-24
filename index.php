@@ -156,7 +156,7 @@ function isExpired($endDate) {
                     View
                     </a>
                     <a href="sign-petition.php?id=<?= $petition['IDP']; ?>" 
-                    class="flex-1 text-center py-2 bg-purple-800 text-white rounded-lg font-medium hover:bg-purple-900 transition <?= $expired ? 'opacity-50 cursor-not-allowed pointer-events-none' : '' ?>">
+                    class="flex-1 text-center py-2 bg-purple-800 text-white rounded-lg font-medium hover:bg-purple-900 transition <?= $expired ? 'opacity-60 cursor-not-allowed pointer-events-none' : '' ?>">
                     <?= $expired ? 'Closed' : 'Sign' ?>
                     </a>
                 </div>

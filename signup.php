@@ -66,7 +66,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <?php include __DIR__ . '/includes/header.php'; ?>
 <?php include __DIR__ . '/includes/navbar.php'; ?>
 
-<div class="min-h-screen bg-gray-50 flex flex-col">
+<div class="bg-gray-50 flex flex-col">
     <div class="flex-1 flex items-center justify-center px-4 py-12">
         <div class="w-full max-w-md">
             <div class="text-center mb-8">
