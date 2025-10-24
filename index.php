@@ -51,29 +51,35 @@ function isExpired($endDate) {
     </div>
 
     <!-- Top Petition -->
-    <?php if ($topPetition): ?>
-    <div class="bg-gradient-to-r from-purple-800 to-purple-600 rounded-lg shadow-lg p-6 mb-10 text-white">
+    <div id="topPetitionContainer" class="bg-gradient-to-r from-purple-800 to-purple-600 rounded-lg shadow-lg p-6 mb-10 text-white">
       <div class="flex items-center gap-2 mb-2">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
         </svg>
         <span class="font-semibold">Trending Petition</span>
+        <span id="lastUpdated" class="text-purple-200 text-sm ml-auto"></span>
       </div>
-      <h2 class="text-2xl font-bold mb-2"><?= htmlspecialchars($topPetition['TitleP']); ?></h2>
-      <p class="text-purple-100 mb-4"><?= htmlspecialchars(substr($topPetition['DescriptionP'], 0, 300)) . (strlen($topPetition['DescriptionP']) > 300 ? '...' : ''); ?></p>
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
-          </svg>
-          <span class="text-lg"><?= number_format($topPetition['signatureCount']); ?> signatures</span>
+      <div id="topPetitionContent">
+        <?php if ($topPetition): ?>
+        <h2 class="text-2xl font-bold mb-2"><?= htmlspecialchars($topPetition['TitleP']); ?></h2>
+        <p class="text-purple-100 mb-4"><?= htmlspecialchars(substr($topPetition['DescriptionP'], 0, 300)) . (strlen($topPetition['DescriptionP']) > 300 ? '...' : ''); ?></p>
+        <div class="flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+            </svg>
+            <span class="text-lg"><?= number_format($topPetition['signatureCount']); ?> signatures</span>
+          </div>
+          <a href="petition-details.php?id=<?= $topPetition['IDP']; ?>" class="bg-white text-purple-800 px-6 py-2 rounded-md hover:bg-gray-100 transition font-semibold">
+            View Petition
+          </a>
         </div>
-        <a href="petition-details.php?id=<?= $topPetition['IDP']; ?>" class="bg-white text-purple-800 px-6 py-2 rounded-md hover:bg-gray-100 transition font-semibold">
-          View Petition
-        </a>
+        <?php else: ?>
+        <h2 class="text-2xl font-bold mb-2">No petitions yet</h2>
+        <p class="text-purple-100 mb-4">Be the first to start a petition!</p>
+        <?php endif; ?>
       </div>
     </div>
-    <?php endif; ?>
 
     <!-- Search + Sort -->
     <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
@@ -197,6 +203,49 @@ function filterAndSort() {
 
 searchInput.addEventListener('input', filterAndSort);
 sortSelect.addEventListener('change', filterAndSort);
+
+// Real-time top petition updates
+function loadTopPetition() {
+    const xhr = new XMLHttpRequest();
+    xhr.open('GET', 'api/top-petition.php', true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            const data = JSON.parse(xhr.responseText);
+            const container = document.getElementById('topPetitionContent');
+            const lastUpdated = document.getElementById('lastUpdated');
+            
+            if (data.petition) {
+                container.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-2">${data.petition.TitleP}</h2>
+                    <p class="text-purple-100 mb-4">${data.petition.DescriptionP.substring(0, 300)}${data.petition.DescriptionP.length > 300 ? '...' : ''}</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            <span class="text-lg">${data.signatureCount} signatures</span>
+                        </div>
+                        <a href="petition-details.php?id=${data.petition.IDP}" class="bg-white text-purple-800 px-6 py-2 rounded-md hover:bg-gray-100 transition font-semibold">
+                            View Petition
+                        </a>
+                    </div>
+                `;
+            } else {
+                container.innerHTML = `
+                    <h2 class="text-2xl font-bold mb-2">No petitions yet</h2>
+                    <p class="text-purple-100 mb-4">Be the first to start a petition!</p>
+                `;
+            }
+            
+            // Update last updated timestamp
+            lastUpdated.textContent = `Updated: ${new Date().toLocaleTimeString()}`;
+        }
+    };
+    xhr.send();
+}
+
+// Auto-refresh top petition every 30 seconds
+setInterval(loadTopPetition, 30000);
 </script>
 </body>
 </html>
