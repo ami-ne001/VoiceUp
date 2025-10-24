@@ -46,7 +46,7 @@ function isExpired($endDate) {
     
     <!-- Page Title -->
     <div class="mb-8 text-center">
-      <h1 class="text-4xl font-bold text-gray-900 mb-2">Browse Petitions</h1>
+      <h1 class="text-3xl font-bold text-gray-900 mb-2">Browse Petitions</h1>
       <p class="text-gray-600">Discover and sign petitions that matter to you</p>
     </div>
 
@@ -60,7 +60,7 @@ function isExpired($endDate) {
         <span class="font-semibold">Trending Petition</span>
       </div>
       <h2 class="text-2xl font-bold mb-2"><?= htmlspecialchars($topPetition['TitleP']); ?></h2>
-      <p class="text-purple-100 mb-4"><?= htmlspecialchars(substr($topPetition['DescriptionP'], 0, 150)) . (strlen($topPetition['DescriptionP']) > 150 ? '...' : ''); ?></p>
+      <p class="text-purple-100 mb-4"><?= htmlspecialchars(substr($topPetition['DescriptionP'], 0, 300)) . (strlen($topPetition['DescriptionP']) > 300 ? '...' : ''); ?></p>
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

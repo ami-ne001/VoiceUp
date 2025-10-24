@@ -62,7 +62,7 @@ function isExpired($endDate) {
 
 <div class="min-h-screen bg-gray-50 py-8">
     <div class="container mx-auto px-12">
-        <div class="mb-8">
+        <div class="mb-8 text-center">
             <h1 class="text-3xl font-bold text-gray-900 mb-2">My Petitions</h1>
             <p class="text-gray-600">Manage petitions you've created and signed</p>
         </div>

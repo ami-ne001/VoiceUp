@@ -72,6 +72,12 @@ closeDBConnection($conn);
 
 <div class="min-h-screen bg-gray-50 py-8">
     <div class="container mx-auto px-4 max-w-3xl">
+
+        <div class="mb-8 text-center">
+            <h1 class="text-3xl font-bold text-gray-900 mb-2">Edit Petition</h1>
+            <p class="text-gray-600">Update your petition details</p>
+        </div>
+        
         <div class="mb-6">
             <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="text-purple-800 hover:text-purple-700 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,11 +85,6 @@ closeDBConnection($conn);
                 </svg>
                 Back to petition
             </a>
-        </div>
-
-        <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900 mb-2">Edit Petition</h1>
-            <p class="text-gray-600">Update your petition details</p>
         </div>
 
         <?php if ($error): ?>

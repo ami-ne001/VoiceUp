@@ -8,7 +8,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
   <div class="container mx-auto px-12 py-4 flex items-center justify-between">
     <!-- Logo -->
     <a href="index.php" class="flex items-center gap-2">
-      <img src="assets/images/VoiceUp_logo.jpg" alt="VoiceUp Logo" class="h-10 w-auto object-contain">
+      <img src="assets/images/VoiceUp_logo.png" alt="VoiceUp Logo" class="h-10 w-auto object-contain">
     </a>
 
     <!-- Navigation -->
