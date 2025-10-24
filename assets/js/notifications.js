@@ -56,14 +56,17 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update notification display
     function updateNotificationDisplay() {
-        if (notifications.length === 0) {
+        // Filter out read notifications
+        const unreadNotifications = notifications.filter(notification => !notification.read);
+        
+        if (unreadNotifications.length === 0) {
             notificationList.innerHTML = `
                 <div class="p-4 text-center text-gray-500">
-                    <p>No notifications yet</p>
+                    <p>No new notifications</p>
                 </div>
             `;
         } else {
-            notificationList.innerHTML = notifications.map(notification => `
+            notificationList.innerHTML = unreadNotifications.map(notification => `
                 <div class="p-4 border-b border-gray-100 hover:bg-gray-50">
                     <div class="flex items-start gap-3">
                         <div class="flex-shrink-0">
@@ -79,7 +82,9 @@ document.addEventListener('DOMContentLoaded', function() {
                             <p class="text-xs text-gray-500">${getTimeAgo(notification.timestamp)}</p>
                         </div>
                         <div class="flex-shrink-0">
-                            <a href="petition-details.php?id=${notification.id}" class="text-purple-600 hover:text-purple-800 text-xs font-medium">
+                            <a href="petition-details.php?id=${notification.id}" 
+                               class="text-purple-600 hover:text-purple-800 text-xs font-medium"
+                               onclick="markAsRead(${notification.id})">
                                 View
                             </a>
                         </div>
@@ -91,13 +96,48 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Update badge
     function updateBadge() {
-        if (notifications.length > 0) {
-            badge.textContent = notifications.length;
+        const unreadCount = notifications.filter(notification => !notification.read).length;
+        if (unreadCount > 0) {
+            badge.textContent = unreadCount;
             badge.classList.remove('hidden');
         } else {
             badge.classList.add('hidden');
         }
     }
+    
+    // Mark notification as read
+    function markAsRead(notificationId) {
+        fetch('api/notifications.php', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                action: 'markRead',
+                notificationId: notificationId
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Update local notifications
+                notifications.forEach(notification => {
+                    if (notification.id == notificationId) {
+                        notification.read = true;
+                    }
+                });
+                // Refresh display
+                updateNotificationDisplay();
+                updateBadge();
+            }
+        })
+        .catch(error => {
+            console.error('Error marking notification as read:', error);
+        });
+    }
+    
+    // Make markAsRead globally available
+    window.markAsRead = markAsRead;
     
     // Get time ago
     function getTimeAgo(timestamp) {
