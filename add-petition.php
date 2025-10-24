@@ -69,17 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <form method="POST" action="add-petition.php" enctype="multipart/form-data">
                 <div class="mb-6">
                     <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Petition Title *</label>
-                    <input type="text" id="title" name="title" required maxlength="500" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['title']) ? htmlspecialchars($_POST['title']) : ''; ?>" placeholder="What change do you want to make?">
+                    <input type="text" id="title" name="title" required maxlength="500" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['title']) ? htmlspecialchars($_POST['title']) : ''; ?>" placeholder="What change do you want to make?">
                 </div>
 
                 <div class="mb-6">
                     <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
-                    <textarea id="description" name="description" required rows="8" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Explain why this petition matters and what you hope to achieve..."><?php echo isset($_POST['description']) ? htmlspecialchars($_POST['description']) : ''; ?></textarea>
+                    <textarea id="description" name="description" required rows="8" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Explain why this petition matters and what you hope to achieve..."><?php echo isset($_POST['description']) ? htmlspecialchars($_POST['description']) : ''; ?></textarea>
                 </div>
 
                 <div class="mb-6">
                     <label for="image" class="block text-sm font-medium text-gray-700 mb-2">Petition Image (Optional)</label>
-                    <input type="file" id="image" name="image" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <input type="file" id="image" name="image" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                     <p class="text-xs text-gray-500 mt-1">Upload an image to make your petition more engaging (Max 5MB)</p>
                     <input type="hidden" id="imageUrl" name="imageUrl" value="">
                     <div id="imagePreview" class="mt-4 hidden">
@@ -90,22 +90,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="holderName" class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
-                        <input type="text" id="holderName" name="holderName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['holderName']) ? htmlspecialchars($_POST['holderName']) : htmlspecialchars($user['name']); ?>">
+                        <input type="text" id="holderName" name="holderName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['holderName']) ? htmlspecialchars($_POST['holderName']) : htmlspecialchars($user['name']); ?>">
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Contact Email *</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($user['email']); ?>">
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($user['email']); ?>">
                     </div>
                 </div>
 
                 <div class="mb-6">
                     <label for="endDate" class="block text-sm font-medium text-gray-700 mb-2">End Date *</label>
-                    <input type="date" id="endDate" name="endDate" required min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['endDate']) ? htmlspecialchars($_POST['endDate']) : ''; ?>">
+                    <input type="date" id="endDate" name="endDate" required min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['endDate']) ? htmlspecialchars($_POST['endDate']) : ''; ?>">
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="submit" id="submitBtn" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium">
+                    <button type="submit" id="submitBtn" class="flex-1 py-3 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition font-medium">
                         Create Petition
                     </button>
                     <a href="index.php" class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">

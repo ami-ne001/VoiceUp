@@ -118,7 +118,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <form method="POST" action="profile.php">
                         <div class="mb-6">
                             <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full Name *</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo htmlspecialchars($profile['name']); ?>">
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo htmlspecialchars($profile['name']); ?>">
                         </div>
 
                         <div class="mb-6">
@@ -129,15 +129,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                         <div class="mb-6">
                             <label for="location" class="block text-sm font-medium text-gray-700 mb-2">Location</label>
-                            <input type="text" id="location" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo htmlspecialchars($profile['location']); ?>" placeholder="e.g., New York, USA">
+                            <input type="text" id="location" name="location" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo htmlspecialchars($profile['location']); ?>" placeholder="e.g., New York, USA">
                         </div>
 
                         <div class="mb-6">
                             <label for="bio" class="block text-sm font-medium text-gray-700 mb-2">Bio</label>
-                            <textarea id="bio" name="bio" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" placeholder="Tell us a bit about yourself..."><?php echo htmlspecialchars($profile['bio']); ?></textarea>
+                            <textarea id="bio" name="bio" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" placeholder="Tell us a bit about yourself..."><?php echo htmlspecialchars($profile['bio']); ?></textarea>
                         </div>
 
-                        <button type="submit" class="w-full py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium">
+                        <button type="submit" class="w-full py-3 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition font-medium">
                             Save Changes
                         </button>
                     </form>
@@ -148,7 +148,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <div>
                 <div class="bg-white rounded-lg shadow-md p-6 mb-6">
                     <div class="flex items-center justify-center mb-6">
-                        <div class="w-24 h-24 bg-blue-600 rounded-full flex items-center justify-center text-white text-3xl font-bold">
+                        <div class="w-24 h-24 bg-purple-800 rounded-full flex items-center justify-center text-white text-3xl font-bold">
                             <?php echo strtoupper(substr($user['name'], 0, 1)); ?>
                         </div>
                     </div>
@@ -161,7 +161,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="space-y-4">
                         <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
                             <div class="flex items-center gap-3">
-                                <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <svg class="w-5 h-5 text-purple-800" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
                                 </svg>
                                 <span class="text-sm text-gray-700">Petitions Created</span>

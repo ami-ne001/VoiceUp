@@ -59,7 +59,7 @@ function formatDateTime($dateString, $timeString) {
 <div class="min-h-screen bg-gray-50 py-8">
     <div class="container mx-auto px-4 max-w-4xl">
         <div class="mb-6">
-            <a href="index.php" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+            <a href="index.php" class="text-purple-800 hover:text-purple-700 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
@@ -103,7 +103,7 @@ function formatDateTime($dateString, $timeString) {
 
                 <div class="flex gap-3">
                     <?php if (!$isExpired): ?>
-                        <a href="sign-petition.php?id=<?php echo $petition['IDP']; ?>" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium text-center">
+                        <a href="sign-petition.php?id=<?php echo $petition['IDP']; ?>" class="flex-1 py-3 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition font-medium text-center">
                             Sign this Petition
                         </a>
                     <?php endif; ?>
@@ -129,14 +129,9 @@ function formatDateTime($dateString, $timeString) {
                 <div class="space-y-4">
                     <?php foreach ($signatures as $signature): ?>
                         <div class="flex items-center justify-between p-4 border border-gray-200 rounded-lg">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-semibold">
-                                    <?php echo strtoupper(substr($signature['FirstNameS'], 0, 1) . substr($signature['LastNameS'], 0, 1)); ?>
-                                </div>
-                                <div>
-                                    <p class="font-semibold text-gray-900"><?php echo htmlspecialchars($signature['FirstNameS'] . ' ' . $signature['LastNameS']); ?></p>
-                                    <p class="text-sm text-gray-600"><?php echo htmlspecialchars($signature['CountryS']); ?> • <?php echo formatDateTime($signature['DateS'], $signature['TimeS']); ?></p>
-                                </div>
+                            <div>
+                                <p class="font-semibold text-gray-900"><?php echo htmlspecialchars($signature['FirstNameS'] . ' ' . $signature['LastNameS']); ?></p>
+                                <p class="text-sm text-gray-600"><?php echo htmlspecialchars($signature['CountryS']); ?> • <?php echo formatDateTime($signature['DateS'], $signature['TimeS']); ?></p>
                             </div>
                             <?php if ($user && $user['email'] === $signature['EmailS']): ?>
                                 <button onclick="deleteSignature(<?php echo $petitionId; ?>, <?php echo $signature['IDS']; ?>)" class="text-red-600 hover:text-red-700">

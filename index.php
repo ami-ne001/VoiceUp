@@ -52,7 +52,7 @@ function isExpired($endDate) {
 
     <!-- Top Petition -->
     <?php if ($topPetition): ?>
-    <div class="bg-gradient-to-r from-blue-600 to-purple-600 rounded-lg shadow-lg p-6 mb-10 text-white">
+    <div class="bg-gradient-to-r from-purple-800 to-purple-600 rounded-lg shadow-lg p-6 mb-10 text-white">
       <div class="flex items-center gap-2 mb-2">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
@@ -60,7 +60,7 @@ function isExpired($endDate) {
         <span class="font-semibold">Trending Petition</span>
       </div>
       <h2 class="text-2xl font-bold mb-2"><?= htmlspecialchars($topPetition['TitleP']); ?></h2>
-      <p class="text-blue-100 mb-4"><?= htmlspecialchars(substr($topPetition['DescriptionP'], 0, 150)) . (strlen($topPetition['DescriptionP']) > 150 ? '...' : ''); ?></p>
+      <p class="text-purple-100 mb-4"><?= htmlspecialchars(substr($topPetition['DescriptionP'], 0, 150)) . (strlen($topPetition['DescriptionP']) > 150 ? '...' : ''); ?></p>
       <div class="flex items-center justify-between">
         <div class="flex items-center gap-2">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -68,7 +68,7 @@ function isExpired($endDate) {
           </svg>
           <span class="text-lg"><?= number_format($topPetition['signatureCount']); ?> signatures</span>
         </div>
-        <a href="petition-details.php?id=<?= $topPetition['IDP']; ?>" class="bg-white text-blue-600 px-6 py-2 rounded-md hover:bg-gray-100 transition font-semibold">
+        <a href="petition-details.php?id=<?= $topPetition['IDP']; ?>" class="bg-white text-purple-800 px-6 py-2 rounded-md hover:bg-gray-100 transition font-semibold">
           View Petition
         </a>
       </div>
@@ -82,9 +82,9 @@ function isExpired($endDate) {
           <svg class="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
           </svg>
-          <input type="text" id="searchInput" placeholder="Search petitions by title, description, or author..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+          <input type="text" id="searchInput" placeholder="Search petitions by title, description, or author..." class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent">
         </div>
-        <select id="sortSelect" class="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent md:w-48">
+        <select id="sortSelect" class="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent md:w-48">
           <option value="recent">Most Recent</option>
           <option value="popular">Most Popular</option>
           <option value="ending-soon">Ending Soon</option>
@@ -151,7 +151,7 @@ function isExpired($endDate) {
                     View
                     </a>
                     <a href="sign-petition.php?id=<?= $petition['IDP']; ?>" 
-                    class="flex-1 text-center py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition <?= $expired ? 'opacity-50 cursor-not-allowed pointer-events-none' : '' ?>">
+                    class="flex-1 text-center py-2 bg-purple-800 text-white rounded-lg font-medium hover:bg-purple-900 transition <?= $expired ? 'opacity-50 cursor-not-allowed pointer-events-none' : '' ?>">
                     <?= $expired ? 'Closed' : 'Sign' ?>
                     </a>
                 </div>

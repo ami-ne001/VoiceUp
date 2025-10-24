@@ -71,7 +71,7 @@ function isExpired($endDate) {
         <div class="bg-white rounded-lg shadow-sm mb-6">
             <div class="border-b">
                 <div class="flex">
-                    <button onclick="switchTab('created')" id="createdTab" class="px-6 py-4 font-medium border-b-2 border-blue-600 text-blue-600">
+                    <button onclick="switchTab('created')" id="createdTab" class="px-6 py-4 font-medium border-b-2 border-purple-800 text-purple-800">
                         Created Petitions (<?php echo count($createdPetitions); ?>)
                     </button>
                     <button onclick="switchTab('signed')" id="signedTab" class="px-6 py-4 font-medium border-b-2 border-transparent text-gray-600 hover:text-gray-900">
@@ -90,7 +90,7 @@ function isExpired($endDate) {
                     </svg>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">No petitions created yet</h3>
                     <p class="text-gray-600 mb-4">Start making a difference by creating your first petition</p>
-                    <a href="add-petition.php" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                    <a href="add-petition.php" class="inline-block px-6 py-2 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition">
                         Create Petition
                     </a>
                 </div>
@@ -163,7 +163,7 @@ function isExpired($endDate) {
                     </svg>
                     <h3 class="text-lg font-semibold text-gray-900 mb-2">No petitions signed yet</h3>
                     <p class="text-gray-600 mb-4">Browse petitions and sign those that matter to you</p>
-                    <a href="index.php" class="inline-block px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition">
+                    <a href="index.php" class="inline-block px-6 py-2 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition">
                         Browse Petitions
                     </a>
                 </div>
@@ -179,8 +179,6 @@ function isExpired($endDate) {
                             <img src="<?= $image ?>" alt="<?= htmlspecialchars($petition['TitleP']) ?>" class="w-full h-full object-cover">
                             <?php if ($expired): ?>
                                 <span class="absolute top-3 right-3 bg-gray-800 text-white px-3 py-1 rounded-full text-xs font-semibold">Closed</span>
-                            <?php else: ?>
-                                <span class="absolute top-3 right-3 bg-green-600 text-white px-3 py-1 rounded-full text-xs font-semibold">Signed</span>
                             <?php endif; ?>
                         </div>
 
@@ -211,7 +209,7 @@ function isExpired($endDate) {
                             <!-- Buttons -->
                             <div class="mt-5 flex gap-3">
                                 <a href="petition-details.php?id=<?= $petition['IDP']; ?>" 
-                                class="flex-1 text-center py-2 bg-blue-600 text-white rounded-lg font-medium hover:bg-blue-700 transition">
+                                class="flex-1 text-center py-2 bg-purple-800 text-white rounded-lg font-medium hover:bg-purple-900 transition">
                                 View Details
                                 </a>
                             </div>
@@ -231,17 +229,17 @@ function switchTab(tab) {
     const signedContent = document.getElementById('signedContent');
     
     if (tab === 'created') {
-        createdTab.classList.add('border-blue-600', 'text-blue-600');
+        createdTab.classList.add('border-purple-800', 'text-purple-800');
         createdTab.classList.remove('border-transparent', 'text-gray-600');
         signedTab.classList.add('border-transparent', 'text-gray-600');
-        signedTab.classList.remove('border-blue-600', 'text-blue-600');
+        signedTab.classList.remove('border-purple-800', 'text-purple-800');
         createdContent.classList.remove('hidden');
         signedContent.classList.add('hidden');
     } else {
-        signedTab.classList.add('border-blue-600', 'text-blue-600');
+        signedTab.classList.add('border-purple-800', 'text-purple-800');
         signedTab.classList.remove('border-transparent', 'text-gray-600');
         createdTab.classList.add('border-transparent', 'text-gray-600');
-        createdTab.classList.remove('border-blue-600', 'text-blue-600');
+        createdTab.classList.remove('border-purple-800', 'text-purple-800');
         signedContent.classList.remove('hidden');
         createdContent.classList.add('hidden');
     }

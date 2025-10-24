@@ -94,7 +94,7 @@ function formatDate($dateString) {
 <div class="min-h-screen bg-gray-50 py-8">
     <div class="container mx-auto px-4 max-w-3xl">
         <div class="mb-6">
-            <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+            <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="text-purple-800 hover:text-purple-700 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
@@ -133,33 +133,33 @@ function formatDate($dateString) {
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="firstName" class="block text-sm font-medium text-gray-700 mb-2">First Name *</label>
-                        <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['firstName']) ? htmlspecialchars($_POST['firstName']) : ($user ? htmlspecialchars(explode(' ', $user['name'])[0]) : ''); ?>">
+                        <input type="text" id="firstName" name="firstName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['firstName']) ? htmlspecialchars($_POST['firstName']) : ($user ? htmlspecialchars(explode(' ', $user['name'])[0]) : ''); ?>">
                     </div>
 
                     <div>
                         <label for="lastName" class="block text-sm font-medium text-gray-700 mb-2">Last Name *</label>
-                        <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['lastName']) ? htmlspecialchars($_POST['lastName']) : ($user && strpos($user['name'], ' ') !== false ? htmlspecialchars(substr($user['name'], strpos($user['name'], ' ') + 1)) : ''); ?>">
+                        <input type="text" id="lastName" name="lastName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['lastName']) ? htmlspecialchars($_POST['lastName']) : ($user && strpos($user['name'], ' ') !== false ? htmlspecialchars(substr($user['name'], strpos($user['name'], ' ') + 1)) : ''); ?>">
                     </div>
                 </div>
 
                 <div class="mb-6">
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email *</label>
-                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ($user ? htmlspecialchars($user['email']) : ''); ?>">
+                    <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ($user ? htmlspecialchars($user['email']) : ''); ?>">
                 </div>
 
                 <div class="mb-6">
                     <label for="country" class="block text-sm font-medium text-gray-700 mb-2">Country *</label>
-                    <input type="text" id="country" name="country" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['country']) ? htmlspecialchars($_POST['country']) : ''; ?>" placeholder="e.g., United States, United Kingdom">
+                    <input type="text" id="country" name="country" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['country']) ? htmlspecialchars($_POST['country']) : ''; ?>" placeholder="e.g., United States, United Kingdom">
                 </div>
 
-                <div class="mb-6 p-4 bg-blue-50 border border-blue-200 rounded-md">
-                    <p class="text-sm text-blue-800">
+                <div class="mb-6 p-4 bg-purple-50 border border-purple-200 rounded-md">
+                    <p class="text-sm text-purple-800">
                         <strong>Note:</strong> Your signature will be publicly visible on the petition page. By signing, you agree to support this cause.
                     </p>
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="submit" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium">
+                    <button type="submit" class="flex-1 py-3 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition font-medium">
                         Sign Petition
                     </button>
                     <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">

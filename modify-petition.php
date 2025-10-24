@@ -73,7 +73,7 @@ closeDBConnection($conn);
 <div class="min-h-screen bg-gray-50 py-8">
     <div class="container mx-auto px-4 max-w-3xl">
         <div class="mb-6">
-            <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="text-blue-600 hover:text-blue-700 flex items-center gap-2">
+            <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="text-purple-800 hover:text-purple-700 flex items-center gap-2">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
                 </svg>
@@ -96,12 +96,12 @@ closeDBConnection($conn);
             <form method="POST" action="modify-petition.php?id=<?php echo $petitionId; ?>" enctype="multipart/form-data">
                 <div class="mb-6">
                     <label for="title" class="block text-sm font-medium text-gray-700 mb-2">Petition Title *</label>
-                    <input type="text" id="title" name="title" required maxlength="500" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['title']) ? htmlspecialchars($_POST['title']) : htmlspecialchars($petition['TitleP']); ?>">
+                    <input type="text" id="title" name="title" required maxlength="500" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['title']) ? htmlspecialchars($_POST['title']) : htmlspecialchars($petition['TitleP']); ?>">
                 </div>
 
                 <div class="mb-6">
                     <label for="description" class="block text-sm font-medium text-gray-700 mb-2">Description *</label>
-                    <textarea id="description" name="description" required rows="8" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"><?php echo isset($_POST['description']) ? htmlspecialchars($_POST['description']) : htmlspecialchars($petition['DescriptionP']); ?></textarea>
+                    <textarea id="description" name="description" required rows="8" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent"><?php echo isset($_POST['description']) ? htmlspecialchars($_POST['description']) : htmlspecialchars($petition['DescriptionP']); ?></textarea>
                 </div>
 
                 <div class="mb-6">
@@ -112,7 +112,7 @@ closeDBConnection($conn);
                             <img src="<?php echo htmlspecialchars($petition['ImageUrl']); ?>" alt="Current image" class="max-w-xs rounded-lg">
                         </div>
                     <?php endif; ?>
-                    <input type="file" id="image" name="image" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent">
+                    <input type="file" id="image" name="image" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent">
                     <p class="text-xs text-gray-500 mt-1">Upload a new image to replace the current one (Max 5MB)</p>
                     <input type="hidden" id="imageUrl" name="imageUrl" value="<?php echo htmlspecialchars($petition['ImageUrl'] ?? ''); ?>">
                     <div id="imagePreview" class="mt-4 hidden">
@@ -123,22 +123,22 @@ closeDBConnection($conn);
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="holderName" class="block text-sm font-medium text-gray-700 mb-2">Your Name *</label>
-                        <input type="text" id="holderName" name="holderName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['holderName']) ? htmlspecialchars($_POST['holderName']) : htmlspecialchars($petition['HolderNameP']); ?>">
+                        <input type="text" id="holderName" name="holderName" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['holderName']) ? htmlspecialchars($_POST['holderName']) : htmlspecialchars($petition['HolderNameP']); ?>">
                     </div>
 
                     <div>
                         <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Contact Email *</label>
-                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($petition['Email']); ?>">
+                        <input type="email" id="email" name="email" required class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : htmlspecialchars($petition['Email']); ?>">
                     </div>
                 </div>
 
                 <div class="mb-6">
                     <label for="endDate" class="block text-sm font-medium text-gray-700 mb-2">End Date *</label>
-                    <input type="date" id="endDate" name="endDate" required min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent" value="<?php echo isset($_POST['endDate']) ? htmlspecialchars($_POST['endDate']) : htmlspecialchars($petition['EndDateP']); ?>">
+                    <input type="date" id="endDate" name="endDate" required min="<?php echo date('Y-m-d', strtotime('+1 day')); ?>" class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-purple-500 focus:border-transparent" value="<?php echo isset($_POST['endDate']) ? htmlspecialchars($_POST['endDate']) : htmlspecialchars($petition['EndDateP']); ?>">
                 </div>
 
                 <div class="flex gap-3">
-                    <button type="submit" id="submitBtn" class="flex-1 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition font-medium">
+                    <button type="submit" id="submitBtn" class="flex-1 py-3 bg-purple-800 text-white rounded-md hover:bg-purple-900 transition font-medium">
                         Update Petition
                     </button>
                     <a href="petition-details.php?id=<?php echo $petitionId; ?>" class="px-6 py-3 border border-gray-300 rounded-md hover:bg-gray-50 transition text-center">
