@@ -57,7 +57,6 @@ function isExpired($endDate) {
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>
         </svg>
         <span class="font-semibold">Trending Petition</span>
-        <span id="lastUpdated" class="text-purple-200 text-sm ml-auto"></span>
       </div>
       <div id="topPetitionContent">
         <?php if ($topPetition): ?>
@@ -212,7 +211,6 @@ function loadTopPetition() {
         if (xhr.readyState === 4 && xhr.status === 200) {
             const data = JSON.parse(xhr.responseText);
             const container = document.getElementById('topPetitionContent');
-            const lastUpdated = document.getElementById('lastUpdated');
             
             if (data.petition) {
                 container.innerHTML = `
@@ -236,9 +234,6 @@ function loadTopPetition() {
                     <p class="text-purple-100 mb-4">Be the first to start a petition!</p>
                 `;
             }
-            
-            // Update last updated timestamp
-            lastUpdated.textContent = `Updated: ${new Date().toLocaleTimeString()}`;
         }
     };
     xhr.send();
