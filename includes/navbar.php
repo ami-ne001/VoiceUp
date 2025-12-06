@@ -12,7 +12,7 @@ $currentPage = basename($_SERVER['PHP_SELF']);
     </a>
 
     <!-- Navigation -->
-    <nav class="flex items-center pl-24 gap-4 font-medium">
+    <nav class="flex items-center pl-36 gap-4 font-medium">
       <a href="index.php"
          class="px-4 py-2 rounded-lg transition 
             <?= $currentPage === 'index.php' ? 'bg-purple-50 text-purple-800 font-semibold' : 'hover:bg-gray-50' ?>">

@@ -51,7 +51,7 @@ function isExpired($endDate) {
     </div>
 
     <!-- Top Petition -->
-    <div id="topPetitionContainer" class="bg-gradient-to-r from-purple-800 to-purple-600 rounded-lg shadow-lg p-6 mb-10 text-white">
+    <div id="topPetitionContainer" class="bg-gradient-to-r from-purple-900 to-purple-800 rounded-lg shadow-lg p-6 mb-10 text-white">
       <div class="flex items-center gap-2 mb-2">
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"></path>

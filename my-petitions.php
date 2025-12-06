@@ -140,7 +140,7 @@ function isExpired($endDate) {
                                 View
                                 </a>
                                 <a href="modify-petition.php?id=<?= $petition['IDP']; ?>" 
-                                class="flex-1 text-center py-2 border border-gray-300 rounded-lg font-medium hover:bg-gray-50 transition">
+                                class="flex-1 text-center py-2 bg-purple-800 text-white rounded-lg font-medium hover:bg-purple-900 transition">
                                 Edit
                                 </a>
                                 <button onclick="deletePetition(<?= $petition['IDP']; ?>)" 
