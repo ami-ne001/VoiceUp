@@ -27,7 +27,7 @@ Follow these steps to get VoiceUp running on your local machine:
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/yourusername/VoiceUp.git
+   git clone https://github.com/ami-ne001/VoiceUp.git
    cd VoiceUp
    ```
 
